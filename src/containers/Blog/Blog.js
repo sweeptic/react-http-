@@ -67,13 +67,18 @@ class Blog extends Component {
             </header>
 
 
-            <section className="Posts">{posts}</section>
-            <section>
+            <section className="Posts">
+               {posts}
+            </section>
+
+            {/* <section>
                <FullPost id={this.state.selectedPostId} />
             </section>
             <section>
                <NewPost />
-            </section>
+            </section> */}
+
+
          </div>
       );
    }
