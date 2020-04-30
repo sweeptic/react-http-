@@ -10,5 +10,5 @@ const post = (props) => (
         </div>
     </article>
 );
-
+// TEST
 export default post;
