@@ -17,10 +17,10 @@ class FullPost extends Component {
                 axios
                     .get(
                         "/posts/" +
-                            this.props.id
+                        this.props.id
                     )
                     .then((response) => {
-                        console.log(response);
+                        // console.log(response);
                         this.setState({ loadedPost: response.data });
                     });
             }
@@ -30,9 +30,9 @@ class FullPost extends Component {
 
     deletePostHandler = () => {
         axios.delete("/posts/" + this.props.id)
-        .then(response => {
-            console.log(response)
-        })
+            .then(response => {
+                // console.log(response)
+            })
     }
 
 
