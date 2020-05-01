@@ -11,6 +11,7 @@ export default class Posts extends Component {
     };
 
     componentDidMount() {
+        console.log(this.props)
         axios
             .get("/posts")
             .then((response) => {
@@ -24,7 +25,7 @@ export default class Posts extends Component {
                 this.setState({
                     posts: updatedPosts,
                 });
-                console.log(response);
+                // console.log(response);
             })
             .catch((error) => {
                 console.log(error)
