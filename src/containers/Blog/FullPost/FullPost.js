@@ -7,8 +7,8 @@ class FullPost extends Component {
         loadedPost: null,
     };
 
-    componentDidUpdate() {
-        if (this.props.id) {
+    componentDidMount() {
+        if (this.props.match.params.id) {
             if (
                 !this.state.loadedPost ||
                 (this.state.loadedPost &&
@@ -17,7 +17,7 @@ class FullPost extends Component {
                 axios
                     .get(
                         "/posts/" +
-                        this.props.id
+                        this.props.match.params.id
                     )
                     .then((response) => {
                         // console.log(response);
