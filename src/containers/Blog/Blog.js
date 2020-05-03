@@ -2,16 +2,22 @@ import React, { Component } from "react";
 import "./Blog.module.css";
 import Posts from './Posts/Posts';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom'
-import NewPost from './NewPost/NewPost';
+// import NewPost from './NewPost/NewPost';
+import AsyncComponent from './../../hoc/AsyncComponent';
+
+
+const AsyncNewPost = AsyncComponent(() => {
+   return import('./NewPost/NewPost')
+});
 
 class Blog extends Component {
    state = {
-      auth: false
+      auth: true
    }
 
    render() {
       return (
-         <div className="Blog">
+         <div className="Blog"> 
             <header>
                <nav>
                   <ul>
@@ -27,16 +33,16 @@ class Blog extends Component {
                         pathname: '/new-post',
                         hash: '#submit',
                         search: '?quick-submit=true'
-                     }}>New Post</NavLink></li>  
+                     }}>New Post</NavLink></li>
                   </ul>
                </nav>
             </header>
             {/* <Route path="/" exact render={() => <h1>Home</h1> } />
            <Route path="/"  render={() => <h1>Home2</h1> } /> */}
             <Switch>
-               {this.state.auth ? <Route path="/new-post" component={NewPost} /> : null}
+               {this.state.auth ? <Route path="/new-post" component={AsyncNewPost} /> : null}
                <Route path="/posts" component={Posts} />
-               <Route render={ () => <h1>Not found</h1> } />
+               <Route render={() => <h1>Not found</h1>} />
                {/* <Redirect from="/" to="/posts" /> */}
             </Switch>
          </div>
