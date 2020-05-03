@@ -27,7 +27,7 @@ class Blog extends Component {
                         pathname: '/new-post',
                         hash: '#submit',
                         search: '?quick-submit=true'
-                     }}>New Post</NavLink></li>
+                     }}>New Post</NavLink></li>  
                   </ul>
                </nav>
             </header>
@@ -36,7 +36,8 @@ class Blog extends Component {
             <Switch>
                {this.state.auth ? <Route path="/new-post" component={NewPost} /> : null}
                <Route path="/posts" component={Posts} />
-               <Redirect from="/" to="/posts" />
+               <Route render={ () => <h1>Not found</h1> } />
+               {/* <Redirect from="/" to="/posts" /> */}
             </Switch>
          </div>
       );
